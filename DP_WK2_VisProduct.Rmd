@@ -1,0 +1,35 @@
+---
+title: "Data Products Wk2 Assignment"
+author: "Kelvin Leung"
+date: "7/23/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Developing Data Products 
+### WeeK 2 Assignment
+
+```{r}
+library(leaflet)
+```
+
+## Create the map of Hong Kong
+```{r hongkongMap}
+my_map <- leaflet() %>%
+    addTiles()
+my_map
+```
+
+## `r format(Sys.time(), "%a %b %d  %Y")`
+```{r HKairport}
+thePeak <- c("<a href='https://www.thepeak.com.hk/en/2_1.asp'>The Peak, Hong Kong</a>")
+hkAirport <- c("<a href='https://www.hongkongairport.com/'>Hong Kong International Airport</a>")
+leaflet() %>% 
+    addTiles() %>%
+    addMarkers(lat=22.2759, lng=114.1455, popup=thePeak) %>%
+    addMarkers(lat=22.3080, lng=113.9185, popup=hkAirport)
+```    
+

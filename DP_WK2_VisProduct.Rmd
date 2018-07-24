@@ -1,30 +1,34 @@
 ---
 title: "Data Products Week 2 Assignment"
 author: "Kelvin Leung"
-date: "7/23/2018"
-output: ioslides_presentation
+date: "07/23/2018"
+output: 
+    pdf_document: default
+    html_document: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo=TRUE)
 ```
 
-```{r eval=TRUE}
+```{r, echo=FALSE}
 library(leaflet)
 ```
 
-## `r format(Sys.Date(), "%a %b %d %Y")`
-Interactive Map of Hong Kong 
-```{r HKairport}
+## Interactive Map of Hong Kong 
+```{r HKmap}
 thePeak <- c("<a href='https://www.thepeak.com.hk/en/2_1.asp'>The Peak, Hong Kong</a>")
 hkAirport <- c("<a href='https://www.hongkongairport.com/'>Hong Kong International Airport</a>")
-kowloonWalledCity <- c("<a href='https://en.wikipedia.org/wiki/Kowloon_Walled_City'>Kowloon Walled City (from Wikipeidia)</a>"
+kowloonWalledCity <- c("<a href='https://en.wikipedia.org/wiki/Kowloon_Walled_City'>Kowloon Walled City (from Wikipeidia)</a>")
 
-)
-leaflet() %>% 
-    addTiles() %>%
+my_map <- leaflet() %>% 
+        addTiles()
+
+my_map <- my_map %>%
     addMarkers(lat=22.2759, lng=114.1455, popup=thePeak) %>%
     addMarkers(lat=22.3080, lng=113.9185, popup=hkAirport) %>%
     addMarkers(lat=22.3260336959, lng=114.186529254, popup=kowloonWalledCity)
+
+my_map
 ```    
 
